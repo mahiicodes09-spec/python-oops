@@ -1,6 +1,7 @@
 #poly: many morphism: forms
 # it means that one thing can behave in different ways depending on the situation
 
+#example:
 class Dog:
     def speak(self):
         print("Bark")
@@ -14,13 +15,13 @@ class Robot:
 def make_it_speak(obj):
     obj.speak()      
 
-#make_it_speak(Robot())
-#make_it_speak(Cat())
-#make_it_speak(Dog())
+make_it_speak(Robot())
+make_it_speak(Cat())
+make_it_speak(Dog())
 
 
 
-#PRACTICE SET!
+#PROBELM SET:1 - Polymorphism using Duck Typing
 class Mahi:
     def bday(self):
         print("18th of April,2006")
@@ -36,6 +37,47 @@ class Rishabh:
 def birth_date(date):
   date.bday()
 
+birth_date(Mahi())
+birth_date(Rishabh())
 birth_date(Shree())
 
-#different classes have same method hence it is an example of polymorphism
+#PROBLEM SET:2 - PAYMENT METHODS
+
+class UPIPayment():
+    def pay(self):
+        print("Paid using UPI")
+
+class CardPayment():
+    def pay(self):
+        print("Paid using Card")        
+
+class CashPayment():
+    def pay(self):
+        print("Paid using Cash")  
+
+def process_payment(payment):
+    payment.pay()
+
+process_payment(UPIPayment())
+process_payment(CardPayment())
+process_payment(CashPayment())
+
+#PROBLEM SET:3 - polymorphism + inheritance
+
+class Employee:
+    def work(self):
+        print("Employee is Working")
+
+class Developer(Employee):
+    def work(self):
+        print("Developer is writing Code")
+
+class Designer(Employee):
+    def work(self):
+        print("Designer is creating Designs") 
+
+def start_work(employee):
+    employee.work()
+
+start_work(Developer())
+start_work(Designer())
